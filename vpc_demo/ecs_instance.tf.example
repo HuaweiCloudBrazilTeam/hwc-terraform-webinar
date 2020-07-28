@@ -1,7 +1,7 @@
 resource "huaweicloud_compute_instance_v2" "test-server-vpc" {
   name              = "test-server-terraform-vpc"
   image_name        = "Ubuntu 18.04 server 64bit"
-  flavor_name       = "s3.small.1"
+  flavor_name       = "s3.medium.2"
   availability_zone = "${var.region}a"
 
   network {
