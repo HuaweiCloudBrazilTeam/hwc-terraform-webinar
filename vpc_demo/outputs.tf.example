@@ -1,0 +1,7 @@
+output "instance_internal_ip_addr" {
+  value = huaweicloud_compute_instance_v2.test-server-vpc.network[0].fixed_ip_v4
+}
+
+output "instance_eip" {
+  value = huaweicloud_vpc_eip_v1.eip_1.publicip[0].ip_address
+}

@@ -1,0 +1,8 @@
+resource "huaweicloud_vpc_subnet_v1" "subnet_1" {
+  vpc_id = huaweicloud_vpc_v1.vpc1.id
+  name   = "subnet_webinar_1"
+
+  # Range da subnet e endereço do gateway são calculados automaticamente a partir da VPC
+  cidr       = cidrsubnet(huaweicloud_vpc_v1.vpc1.cidr, 8, 1)
+  gateway_ip = cidrhost(cidrsubnet(huaweicloud_vpc_v1.vpc1.cidr, 8, 1), 1)
+}

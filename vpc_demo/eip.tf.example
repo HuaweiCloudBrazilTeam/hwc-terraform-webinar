@@ -1,0 +1,12 @@
+resource "huaweicloud_vpc_eip_v1" "eip_1" {
+  publicip {
+    type    = "5_bgp"
+    port_id = huaweicloud_compute_instance_v2.test-server-vpc.network[0].port
+  }
+  bandwidth {
+    #    name        = "bw_ecs"
+    charge_mode = "traffic" # cobrança por tráfego de dados ("traffic") ou reserva de banda ("bandwidth")
+    share_type  = "PER"     # Banda dedicada ("PER") ou compartilhada ("WHOLE") com outras instâncias
+    size        = 100       # Banda em Mbps (de 1 up até 300)    
+  }
+}
